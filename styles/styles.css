@@ -1,3 +1,7 @@
+:root {
+    --head-padding: 30px;
+}
+
 html body {
     margin: 0;
     height: 100%;
@@ -23,7 +27,6 @@ body {
     background: rgb(66,172,231);
 
     /*fixed size*/
-    min-height: 100vh;
     min-width: 247px;
 
 }
@@ -56,19 +59,19 @@ body {
     gap: 10px;
 }
 
-.header .intro {
+.intro {
     display: grid;
     grid-template: 1fr 1fr / 1fr 8fr;
     font-size: 1.5rem;
 }
 
-.intro img {
+.intro :first-child {
     grid-row: 1 / span 2;
     align-self: center;
     justify-self: center;
 }
 
-.intro .hi {
+.intro :nth-child(2) {
     align-self: center;
 }
 
@@ -115,12 +118,18 @@ body {
     width: 100px;
     align-self: center;
     justify-self: center;
+
+    cursor: pointer;
 }
 
 .body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
+    background: rgb(237,237,237); 
+
+    /* keep bottom same */
+    min-height: 1200px;
 }
 
 .body .announcement {
@@ -136,6 +145,66 @@ body {
 .body .projects {
     grid-row: 1 / 3;
     grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    padding: var(--head-padding);
+}
+.projects .container {
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 10px;
+    flex: 1;
+}
+
+.projects .container .card {
+    background: white;
+    border-radius: 10px;
+    border-left: orange 10px solid;
+    padding: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects .container .card .bottom {
+    align-self: end;
+    justify-self: end;
+    padding: 10px;
+    padding-top: 40%;
+}
+
+.announcement {
+    display: flex;
+    flex-direction: column;
+    padding: var(--head-padding);
+}
+
+.announcement .container, .trending .container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.announcement .title {
+    font-size: larger;
+}
+
+.announcement .card {
+    padding: 15px;
+    border-bottom: 1px black solid;
+}
+
+.trending {
+    display: flex;
+    flex-direction: column;
+    padding: var(--head-padding);
+}
+
+.trending .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex: 1;
 }
